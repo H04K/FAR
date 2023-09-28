@@ -1,0 +1,22 @@
+name: "llama2"
+backend: "python"
+input [
+  {
+    name: "input_data"
+    data_type: TYPE_STRING
+    dims: [ -1 ]
+  }
+]
+output [
+  {
+    name: "output_data"
+    data_type: TYPE_STRING
+    dims: [ -1 ]
+  }
+]
+instance_group [
+  {
+    kind: KIND_GPU
+    count: 1
+  }
+]

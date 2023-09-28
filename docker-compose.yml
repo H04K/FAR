@@ -1,0 +1,29 @@
+version: '3'
+services:
+  triton_server:
+    image: nvcr.io/nvidia/tritonserver:23.07-py3
+    runtime: nvidia
+    shm_size: 256m
+    expose:
+      - "8000" # Exposer le port du serveur Triton
+    volumes:
+      - ./server:/workspace/
+      - ./server/model_repository:/models
+    networks:
+      - my_network
+    hostname: triton_server # Nom d'hôte personnalisé
+    command: bash -c "pip install torch torchvision transformers Image s3fs accelerate gradio auto-gptq unidecode && tritonserver --model-repository=/models"
+
+  triton_client:
+    image: nvcr.io/nvidia/tritonserver:23.07-py3-sdk
+    expose:
+      - "8501" # Exposer le port du client Triton
+    volumes:
+      - ./client:/workspace/
+    networks:
+      - my_network
+    hostname: triton_client # Nom d'hôte personnalisé
+    command: bash -c "pip install torch torchvision transformers Image scikit-learn sentence-transformers && python3 test_it"
+
+networks:
+  my_network:
