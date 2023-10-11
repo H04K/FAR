@@ -1,34 +1,35 @@
+# FAR - Fine-tuned Analysis Reviewer 🚀🤖
 
-## Serveur docker pour tritton 
+FAR is an advanced AI tool that employs the LLAMA2 deep learning model to create specialized AI for in-depth product review analysis.
 
+## Project Overview
 
-```bash
-cd server
-docker run --gpus=all -it --shm-size=256m --rm -p8000:8000 -p8001:8001 -p8002:8002 -v%cd%:/workspace/ -v%cd%/model_repository:/models nvcr.io/nvidia/tritonserver:23.07-py3 bash
+Welcome to the FAR project! We're thrilled to announce that we're in the process of developing this powerful AI tool, and we're excited to share our progress with you. 🎉
 
-pip install torch torchvision
-pip install transformers
-pip install Image
-pip install s3fs
-pip install transformers
-pip install accelerate
-pip install gradio
-pip install auto-gptq
-pip install unidecode
-tritonserver --model-repository=/models
-```
+### Upcoming Version 0.1
 
-## Préparation du Client avec docker 
+We're currently hard at work to bring FAR to version 0.1, which will mark a significant milestone in the development of our fine-tuned analysis reviewer. With this upcoming release, you can expect to experience the following:
 
-```bash
-cd client
-docker run -it --net=host -p8501:8501 -v%cd%:/workspace/ nvcr.io/nvidia/tritonserver:23.07-py3-sdk bash
+- **In-depth Review Analysis**: FAR leverages LLAMA2's advanced deep learning capabilities to provide comprehensive product review analysis. 📊
 
-pip install torch torchvision
-pip install transformers
-pip install Image
-pip install scikit-learn
-pip install -U sentence-transformers
-python3 test_it
-```
+- **Customizable Insights**: We're working on a feature that will allow you to tailor the analysis to your specific needs, making FAR a versatile tool for various applications. 🧩
 
+- **Efficient Deployment**: Our team is committed to making the deployment process as seamless as possible, ensuring that you can start using FAR quickly. 🚀
+
+### What to Expect
+
+As we're in the midst of development, please bear in mind that the project is a work in progress. While version 0.1 is on the horizon, we want to assure you that additional documentation and information will follow shortly. 
+
+This includes:
+
+- **Comprehensive Documentation**: We will provide detailed documentation to help you understand how to use FAR effectively. This will include installation instructions, API references, and example use cases. 📚
+
+- **Support and Community**: We're in the process of building a community around FAR, where you can ask questions, share your experiences, and get support from fellow users and our development team. 💬
+
+- **Regular Updates**: After the release of version 0.1, we plan to continue enhancing FAR with regular updates and improvements. Your feedback and suggestions will play a crucial role in shaping the future of the project. 🛠️
+
+### Get Involved
+
+We believe that FAR has the potential to revolutionize product review analysis, and we're excited to have you on board. If you have any questions, ideas, or feedback, please don't hesitate to reach out. Your input is invaluable in shaping the future of this project. 🙌
+
+Stay tuned for version 0.1, and thank you for being a part of the FAR community! 🚀🤖
